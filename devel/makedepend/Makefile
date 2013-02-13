@@ -16,6 +16,7 @@ COMMENT=	A dependency generator for makefiles
 XORG_CAT=	util
 USE_GNOME=	pkgconfig
 USE_XORG=	xproto
+USE_PKGCONFIG=	yes
 
 PLIST_FILES=	bin/makedepend
 
