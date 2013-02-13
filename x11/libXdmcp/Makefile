@@ -16,6 +16,7 @@ LICENSE=	MIT
 
 XORG_CAT=	lib
 USE_XORG=	xproto:both
+USE_PKGCONFIG=	yes
 
 CONFIGURE_ARGS+=--disable-docs --without-xmlto
 
