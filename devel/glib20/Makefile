@@ -25,6 +25,8 @@ COMMENT=	Some useful routines of C programming (current stable version)
 
 LATEST_LINK=	glib20
 
+USE_PKGCONFIG=	yes
+
 USE_XZ=		yes
 LICENSE=	LGPL20
 LICENSE_FILE=	${WRKSRC}/COPYING
