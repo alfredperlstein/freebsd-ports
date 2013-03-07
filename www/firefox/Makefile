@@ -57,6 +57,10 @@ OPTIONS_DEFAULT:=${OPTIONS_DEFAULT:S/OSS/ALSA/}
 
 WRKSRC:=	${WRKDIR}/mozilla-release
 
+.if ! ${MACHINE_CPU:Msse2}
+GYP_DEFINES+=	disable_sse2=1
+.endif
+
 .if ${ARCH} == amd64
 CONFIGURE_TARGET=x86_64-portbld-freebsd${OSREL}
 .elif ${ARCH} == powerpc64
@@ -67,6 +71,11 @@ MOZ_EXPORT+=	UNAME_m="powerpc64"
 CFLAGS+=	-mminimal-toc
 .endif
 .endif
+
+CFLAGS+=	-D__STDC_CONSTANT_MACROS=1 -D__STDC_LIMIT_MACROS=1
+
+
+USE_GCC=	yes
 
 .if ${PORT_OPTIONS:MPGO}
 USE_GCC?=	yes
