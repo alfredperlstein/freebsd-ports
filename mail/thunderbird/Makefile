@@ -9,6 +9,8 @@ MASTER_SITE_SUBDIR=	${PORTNAME}/releases/${DISTVERSION}esr/source
 DISTFILES=	${PORTNAME}-${DISTVERSION}esr.source${EXTRACT_SUFX}
 EXTRACT_ONLY=	${PORTNAME}-${DISTVERSION}esr.source${EXTRACT_SUFX}
 
+USE_GCC=	yes
+
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Mozilla Thunderbird is standalone mail and news that stands above
 
@@ -72,6 +74,9 @@ MOZ_EXPORT+=	UNAME_m="powerpc64"
 CFLAGS+=	-mminimal-toc
 .endif
 .endif
+
+CFLAGS+=        -D__STDC_CONSTANT_MACROS=1 -D__STDC_LIMIT_MACROS=1
+
 
 .if ${PORT_OPTIONS:MENIGMAIL}
 MASTER_SITES+=	http://www.enigmail.net/download/source/:enigmail
