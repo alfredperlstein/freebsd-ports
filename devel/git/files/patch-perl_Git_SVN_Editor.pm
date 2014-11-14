@@ -1,3 +1,10 @@
+
+  These two patches: 
+      patch-git-svn.perl
+      patch-perl_Git_SVN_Editor.pm
+  Are forward ported from: http://marc.info/?l=git&m=125259772625008&w=2
+  Updated here: https://github.com/splbio/git/tree/v2.1.2-git-svn-propset
+
 --- perl/Git/SVN/Editor.pm.orig	2014-09-30 19:00:40 UTC
 +++ perl/Git/SVN/Editor.pm
 @@ -288,6 +288,57 @@ sub apply_autoprops {
