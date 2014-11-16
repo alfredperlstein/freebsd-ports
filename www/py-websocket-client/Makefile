@@ -13,6 +13,6 @@ COMMENT=	Websocket client for python
 LICENSE=	ISCL
 
 USES=		python
-USE_PYTHON=	distutils,autoplist
+USE_PYTHON=	distutils autoplist
 
 .include <bsd.port.mk>
