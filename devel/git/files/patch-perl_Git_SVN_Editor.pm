@@ -20,17 +20,9 @@
 +    }
 +}
 +
-+# From which subdir have we been invoked?
-+my $cmd_dir_prefix = eval {
-+    command_oneline([qw/rev-parse --show-prefix/], STDERR => 0)
-+} || '';
-+
 +sub apply_manualprops {
 +	my ($self, $file, $fbat) = @_;
-+	my $path = $cmd_dir_prefix . $file;
-+	# diff has ::check_attr
-+	#my $pending_properties = ::check_attr( "svn-properties", $path );
-+	my $pending_properties = check_attr( "svn-properties", $path );
++	my $pending_properties = check_attr( "svn-properties", $file );
 +	if ($pending_properties eq "") { return; }
 +	# Parse the list of properties to set.
 +	my @props = split(/;/, $pending_properties);
@@ -58,35 +50,35 @@
  sub A {
  	my ($self, $m, $deletions) = @_;
  	my ($dir, $file) = split_path($m->{file_b});
-@@ -296,6 +347,7 @@ sub A {
+@@ -296,6 +339,7 @@ sub A {
  					undef, -1);
  	print "\tA\t$m->{file_b}\n" unless $::_q;
  	$self->apply_autoprops($file, $fbat);
-+	$self->apply_manualprops($file, $fbat);
++	$self->apply_manualprops($m->{file_b}, $fbat);
  	$self->chg_file($fbat, $m);
  	$self->close_file($fbat,undef,$self->{pool});
  }
-@@ -311,6 +363,7 @@ sub C {
+@@ -311,6 +355,7 @@ sub C {
  	my $fbat = $self->add_file($self->repo_path($m->{file_b}), $pbat,
  				$upa, $self->{r});
  	print "\tC\t$m->{file_a} => $m->{file_b}\n" unless $::_q;
-+	$self->apply_manualprops($file, $fbat);
++	$self->apply_manualprops($m->{file_b}, $fbat);
  	$self->chg_file($fbat, $m);
  	$self->close_file($fbat,undef,$self->{pool});
  }
-@@ -333,6 +386,7 @@ sub R {
+@@ -333,6 +378,7 @@ sub R {
  				$upa, $self->{r});
  	print "\tR\t$m->{file_a} => $m->{file_b}\n" unless $::_q;
  	$self->apply_autoprops($file, $fbat);
-+	$self->apply_manualprops($file, $fbat);
++	$self->apply_manualprops($m->{file_b}, $fbat);
  	$self->chg_file($fbat, $m);
  	$self->close_file($fbat,undef,$self->{pool});
  
-@@ -348,6 +402,7 @@ sub M {
+@@ -348,6 +394,7 @@ sub M {
  	my $fbat = $self->open_file($self->repo_path($m->{file_b}),
  				$pbat,$self->{r},$self->{pool});
  	print "\t$m->{chg}\t$m->{file_b}\n" unless $::_q;
-+	$self->apply_manualprops($file, $fbat);
++	$self->apply_manualprops($m->{file_b}, $fbat);
  	$self->chg_file($fbat, $m);
  	$self->close_file($fbat,undef,$self->{pool});
  }
