@@ -1,11 +1,4 @@
- 
-  These two patches: 
-      patch-git-svn.perl
-      patch-perl_Git_SVN_Editor.pm
-  Are forward ported from: http://marc.info/?l=git&m=125259772625008&w=2
-  Updated here: https://github.com/splbio/git/tree/v2.1.2-git-svn-propset
-
---- git-svn.perl.orig	2014-11-13 08:43:00 UTC
+--- git-svn.perl.orig	2014-11-16 02:01:16 UTC
 +++ git-svn.perl
 @@ -115,7 +115,7 @@ my ($_stdin, $_help, $_edit,
  	$_before, $_after,
