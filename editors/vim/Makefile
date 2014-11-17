@@ -126,9 +126,6 @@ IGNORE=		this port has new UI option (CONSOLE) for users who do not need GUI sup
 
 .if ${PORT_OPTIONS:MDEFAULT_VIMRC}
 DEFAULT_VIMRC_LOCATION=${PREFIX}/share/vim
-PLIST_SUB+=	DEFAULT_VIMRC_PLIST="@sample "
-.else
-PLIST_SUB+=	DEFAULT_VIMRC_PLIST="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MCONSOLE} || ${PORT_OPTIONS:MX11}
