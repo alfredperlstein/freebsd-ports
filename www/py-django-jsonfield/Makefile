@@ -17,4 +17,7 @@ USE_PYTHON=	distutils autoplist
 
 RUN_DEPENDS:=  ${PYTHON_PKGNAMEPREFIX}django>=1.5:${PORTSDIR}/www/py-django
 
+regression-test: build
+	@cd ${WRKSRC} && ${PYTHON_CMD} ${PYDISTUTILS_SETUP} test
+
 .include <bsd.port.mk>
