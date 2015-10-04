@@ -736,6 +736,7 @@
     SUBDIR += py-htsql-pgsql
     SUBDIR += py-kyotocabinet
     SUBDIR += py-leveldb
+    SUBDIR += py-maxminddb
     SUBDIR += py-memcached
     SUBDIR += py-mssql
     SUBDIR += py-mysql-connector-python
