@@ -4095,6 +4095,7 @@
     SUBDIR += py-minimongo
     SUBDIR += py-mock
     SUBDIR += py-mongoengine
+    SUBDIR += py-monotonic
     SUBDIR += py-mongokit
     SUBDIR += py-more-itertools
     SUBDIR += py-mox
