@@ -1,0 +1,6 @@
+C library for the MaxMind DB file format
+
+MaxMind DB is a binary file format that stores data indexed by IP address
+subnets (IPv4 or IPv6).
+
+WWW: http://maxmind.github.io/libmaxminddb/
