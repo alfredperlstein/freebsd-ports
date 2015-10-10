@@ -12,10 +12,10 @@ COMMENT=	Python extension for reading the MaxMind DB format
 
 LICENSE=	MIT
 
-CFLAGS+=       -I${PREFIX}/include
-LDFLAGS+=       -L${LOCALBASE}/lib
+CFLAGS+=	-I${PREFIX}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
 
-USES=           python
-USE_PYTHON=     autoplist distutils
+USES=		python
+USE_PYTHON=	autoplist distutils
 
 .include <bsd.port.mk>
