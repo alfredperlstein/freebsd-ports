@@ -16,6 +16,6 @@ CFLAGS+=       -I${PREFIX}/include
 LDFLAGS+=       -L${LOCALBASE}/lib
 
 USES=           python
-USE_PYTHON=     distutils autoplist
+USE_PYTHON=     autoplist distutils
 
 .include <bsd.port.mk>
