@@ -31,6 +31,13 @@ OPTIONS_DEFAULT=        PERL
 
 .include <bsd.port.options.mk>
 
+USES+=          shebangfix
+SHEBANG_FILES=	jlog_change_endian.pl jlog_sanity_check.pl
+
+#SHEBANG_LANG=perl
+perl_OLD_CMD=/opt/msys/3rdParty/bin/perl
+#and lua_CMD. For example SHEBANG_LANG=lua, then lua_OLD_CMD=/usr/bin/lua and lua_CMD=${LOCALBASE}/bin/lua.
+
 .if ${PORT_OPTIONS:MPERL}
 USES+=          perl5
 CONFIGURE_ARGS+=        --with-perl-lib=site
