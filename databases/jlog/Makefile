@@ -17,8 +17,7 @@ GH_ACCOUNT=	omniti-labs
 # we want cf3085fe as it has c++ fixes
 # and other additions over the latest 1.2.2
 # release
-GH_COMMIT=	cf3085f
-GH_TAGNAME=	${GH_COMMIT}
+GH_TAGNAME=	cf3085f
 
 #DISTVERSIONSUFFIX=  -${GH_COMMIT}
 #DISTFILES=	${PORTNAME}-${PORTVERSION}-${GH_COMMIT}.
