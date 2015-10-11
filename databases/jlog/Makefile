@@ -15,9 +15,7 @@ BUILD_DEPENDS=	autoconf-2.13:${PORTSDIR}/devel/autoconf213
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omniti-labs
-# we want cf3085fe as it has c++ fixes
-# and other additions over the latest 1.2.2
-# release
+# cf3085fe contains c++ fixes and other additions over the 1.2.2 release
 GH_PROJECT=	${PORTNAME}
 GH_TAGNAME=	cf3085f
 
@@ -32,11 +30,9 @@ SHEBANG_FILES=	jlog_change_endian.pl jlog_sanity_check.pl
 perl_OLD_CMD=	/opt/msys/3rdParty/bin/perl
 
 PERL_CONFIGURE_ON=	--with-perl-lib=site
-PERL_CONFIGURE_WITH=	${PERL}
+PERL_CONFIGURE_WITH=	perl
 
 pre-configure:
 	(cd ${WRKSRC} && ${LOCALBASE}/bin/autoconf-2.13)
-
-.include <bsd.port.options.mk>
 
 .include <bsd.port.mk>
