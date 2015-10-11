@@ -8,7 +8,6 @@ lib/libjlog.so
 %%SITE_ARCH%%/JLog.pm
 %%SITE_ARCH%%/JLog/Reader.pm
 %%SITE_ARCH%%/JLog/Writer.pm
-%%SITE_ARCH%%/auto/JLog/.packlist
 %%SITE_ARCH%%/auto/JLog/JLog.so
 %%PERL5_MAN3%%/JLog.3.gz
 %%PERL5_MAN3%%/JLog::Reader.3.gz
