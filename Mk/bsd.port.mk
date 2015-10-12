@@ -5799,7 +5799,7 @@ ${${target:tu}_COOKIE}::
 
 .endfor # foreach(targets)
 
-.PHONY: ${_PHONY_TARGETS} check-sanity fetch pkg
+.PHONY: ${_PHONY_TARGETS} check-sanity easylint fetch lint pkg submit
 
 .if !target(check-sanity)
 check-sanity: ${_SANITY_REAL_SEQ}
@@ -5812,6 +5812,20 @@ fetch: ${_FETCH_DEP} ${_FETCH_REAL_SEQ}
 .if !target(pkg)
 pkg: ${_PKG_DEP} ${_PKG_REAL_SEQ}
 .endif
+
+# target to run to lint port before submission
+lint:
+	portlint -AC || (echo "Portlint failed to relax portlint try 'make easylint'" ; exit 1)
+	@echo "If you are done, type 'make submit'"
+
+easylint:
+	portlint -C
+	@echo "Lint passed in EASY mode (did you try 'make lint'?) If you are done, type 'make submit'"
+
+submit:
+	@echo "This target needs work."
+	@echo "Please see porter's handbook at: "
+	@echo "  https://www.freebsd.org/doc/en/books/porters-handbook/"
 
 .endif
 # End of post-makefile section.
