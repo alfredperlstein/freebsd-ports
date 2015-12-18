@@ -12,8 +12,7 @@ COMMENT=	Bootstrap forms for django
 
 LICENSE=	MIT
 
-USES=           python
-USE_PYTHON=     distutils autoplist
+USES=		python
+USE_PYTHON=	distutils autoplist
 
 .include <bsd.port.mk>
-
